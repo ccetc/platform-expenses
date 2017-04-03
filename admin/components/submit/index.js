@@ -9,8 +9,22 @@ class Approve extends React.Component {
     container: React.PropTypes.object
   }
 
+  static propTypes = {
+    disbaled: React.PropTypes.bool,
+    id: React.PropTypes.object,
+    status: React.PropTypes.string,
+    type: React.PropTypes.string
+  }
+
+  static defaultProps = {
+    disbaled: false
+  }
+
   render() {
-    return <button className="ui primary fluid button" onClick={ this._handleSubmit.bind(this) }>Submit for Approval</button>
+    const { disabled } = this.props
+    let classes = ['ui','primary','fluid','button']
+    if(disabled) classes.push('disabled')
+    return <button className="ui primary fluid button" disabled={ disabled } onClick={ this._handleSubmit.bind(this) }>Submit for Approval</button>
   }
 
   componentDidUpdate(prevProps) {

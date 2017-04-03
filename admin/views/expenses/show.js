@@ -50,9 +50,11 @@ class Show extends React.Component {
   }
 
   _getSubmit() {
+    const { expense } = this.props
     return {
       type: 'expense',
-      id: this.props.expense.id
+      id: this.props.expense.id,
+      disabled: (expense.receipt === null)
     }
   }
 
