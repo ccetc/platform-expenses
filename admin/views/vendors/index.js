@@ -33,7 +33,9 @@ class Index extends React.Component {
 
 }
 
-const mapPropsToPage = (props, context) => ({
+const mapResourcesToPage = (props, context) => ({})
+
+const mapPropsToPage = (props, context, resources) => ({
   title: 'Vendors',
   task: {
     label: 'New Vendor',
@@ -42,4 +44,4 @@ const mapPropsToPage = (props, context) => ({
   }
 })
 
-export default Page(mapPropsToPage)(Index)
+export default Page(mapResourcesToPage, mapPropsToPage)(Index)

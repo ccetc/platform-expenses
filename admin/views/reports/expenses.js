@@ -46,9 +46,11 @@ class Index extends React.Component {
 
 }
 
-const mapPropsToPage = (props, context) => ({
+const mapResourcesToPage = (props, context) => ({})
+
+const mapPropsToPage = (props, context, resources) => ({
   title: 'Expenses Report',
   rights: ['expenses.access_reports']
 })
 
-export default Page(mapPropsToPage)(Index)
+export default Page(mapResourcesToPage, mapPropsToPage)(Index)

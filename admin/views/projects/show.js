@@ -84,17 +84,18 @@ class Members extends React.Component {
 
 }
 
-const mapPropsToPage = (props, context) => ({
+const mapResourcesToPage = (props, context) => ({
+  project: `/admin/expenses/projects/${props.params.id}`,
+  members: `/admin/expenses/projects/${props.params.id}/members`
+})
+
+const mapPropsToPage = (props, context, resources) => ({
   title: 'Project',
   rights: ['expenses.manage_configuration'],
   tasks: [
     { label: 'Edit Project', modal: Edit },
     { label: 'Add Member', modal: NewMember }
-  ],
-  resources: {
-    project: `/admin/expenses/projects/${props.params.id}`,
-    members: `/admin/expenses/projects/${props.params.id}/members`
-  }
+  ]
 })
 
-export default Page(mapPropsToPage)(Show)
+export default Page(mapResourcesToPage, mapPropsToPage)(Show)

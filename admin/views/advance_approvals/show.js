@@ -56,12 +56,13 @@ class Show extends React.Component {
 
 }
 
-const mapPropsToPage = (props, context) => ({
-  title: 'Advance',
-  access: checkOwnerApprover,
-  resources: {
-    advance: `/admin/expenses/approvals/advances/${props.params.id}`
-  }
+const mapResourcesToPage = (props, context) => ({
+  advance: `/admin/expenses/approvals/advances/${props.params.id}`
 })
 
-export default Page(mapPropsToPage)(Show)
+const mapPropsToPage = (props, context, resources) => ({
+  title: 'Advance',
+  access: checkOwnerApprover
+})
+
+export default Page(mapResourcesToPage, mapPropsToPage)(Show)

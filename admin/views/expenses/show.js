@@ -58,17 +58,16 @@ class Show extends React.Component {
 
 }
 
-const mapPropsToPage = (props, context) => {
-  return {
-    title: 'Expense',
-    rights: ['expenses.manage_expenses'],
-    tasks: [
-      { label: 'Edit Expense', modal: Edit }
-    ],
-    resources: {
-      expense: `/admin/expenses/expenses/${props.params.id}`
-    }
-  }
-}
+const mapResourcesToPage = (props, context) => ({
+  expense: `/admin/expenses/expenses/${props.params.id}`
+})
 
-export default Page(mapPropsToPage)(Show)
+const mapPropsToPage = (props, context, resources) => ({
+  title: 'Expense',
+  rights: ['expenses.manage_expenses'],
+  tasks: [
+    { label: 'Edit Expense', modal: Edit }
+  ]
+})
+
+export default Page(mapResourcesToPage, mapPropsToPage)(Show)
